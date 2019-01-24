@@ -1,0 +1,25 @@
+<div class="container">
+
+  <img class="banner" src="assets/img/banner-1.jpg" alt="" srcset="">
+  <div class="form-group">
+    <label class="municipio" for="municipio">Municipio</label>
+    <select class="form-control" id="municipio" [(ngModel)]="selectedValue" (change)="onChange()">
+      <option *ngFor="let mun of municipios; let i = index" value="{{i}}"> {{i+1}} - {{mun.municipio}}</option>
+    </select>
+  </div>
+
+  <div class="preguntas">
+    <div class="pregunta" *ngFor="let pregunta of munSelected.votacion">
+      <h3>Pregunta {{pregunta.gen.cpr}}</h3>
+      <ul>
+        <li>Si: {{pregunta.vot[0].vga}}</li>
+        <li>No: {{pregunta.vot[1].vga}}</li>
+        <li>Validos: {{pregunta.gen.vva}}</li>
+        <li>Nulos: {{pregunta.gen.vnu}}</li>
+        <li>No marcados: {{pregunta.gen.tnm}}</li>
+        <li>Total: {{pregunta.gen.tot}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
